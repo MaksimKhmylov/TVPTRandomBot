@@ -9,3 +9,9 @@ class UserStatus(enum.Enum):
     new = 1
     standby = 2
     edit = 3
+
+class ContestStatus(enum.Enum):
+    text = 1
+    winners = 2
+    date_start = 3
+    date_end = 4
