@@ -1,4 +1,8 @@
+import random
+
+from pyrogram.enums import ChatMemberStatus
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
+from pyrogram import enums
 
 from config import ContestStatus
 from models import User, UserChannels, Contest
@@ -52,4 +56,17 @@ def contest_info(contest_id, client):
     client.send_message(contest.channel, contest.text)
 
 def contest_run(contest_id, client):
-    ...
+    contest = Contest.get(Contest.id == contest_id)
+    members = client.get_chat_members(contest.channel)
+    players = []
+    for member in members:
+        if member.status == ChatMemberStatus.MEMBER:
+            players.append(member)
+    winners = []
+    for _ in range(contest.winners):
+        player = random.choice(players)
+        winners.append("@"+(player.user.username))
+        players.remove(player)
+    client.send_message(contest.channel, f"ПОБЕДИТЕЛИ КОНКУРСА: {', '.join(winners)}")
+
+

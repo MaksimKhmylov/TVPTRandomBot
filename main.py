@@ -138,6 +138,9 @@ def callback_query(client, callback_query):
     if callback_query.data.startswith("CTINFO"):
         contest_id = callback_query.data.split("CTINFO_")[1]
         contest_info(contest_id, client)
+    if callback_query.data.startswith("CTRUN"):
+        contest_id = callback_query.data.split("CTRUN_")[1]
+        contest_run(contest_id, client)
 
 
 
