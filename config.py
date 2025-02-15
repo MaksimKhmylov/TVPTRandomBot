@@ -6,12 +6,12 @@ API_TOKEN = '7051266336:AAFsZr-ZuitAV2nvRSrJMCiYX7MtwS1KSGw'
 
 class UserStatus(enum.Enum):
     standby = 1
-    edit = 2
+    edit_contest = 2
+    add_channel = 3
 
 class ContestStatus(enum.Enum):
     text = 1
     winners = 2
     channel = 3
-    date_start = 4
-    date_end = 5
-    finished = 6
+    finished = 4
+    done = 5
