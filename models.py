@@ -1,4 +1,4 @@
-from peewee import Model, SqliteDatabase, CharField, IntegerField, ForeignKeyField, TextField, DateField, BooleanField
+from peewee import Model, SqliteDatabase, CharField, IntegerField, ForeignKeyField, TextField, BooleanField
 from config import *
 
 db = SqliteDatabase("TVPTRandomBot.db")
@@ -7,7 +7,7 @@ class User(Model):
     user_id = CharField(unique=True)
     username = CharField(unique=True)
     chat_id = CharField(unique=True)
-    status = IntegerField(default=UserStatus.standby.value)
+    status = IntegerField(default=UserStatus.STANDBY)
 
     class Meta:
         database = db
@@ -17,7 +17,7 @@ class Contest(Model):
     text = TextField(null=True)
     winners = IntegerField(null=True)
     channel = CharField(null=True)
-    status = IntegerField(default=ContestStatus.text.value,)
+    status = IntegerField(default=ContestStatus.TEXT)
     hello_sent = BooleanField(default=False)
 
     class Meta:
