@@ -1,6 +1,6 @@
-API_ID = 22543588
-API_HASH = '7e20f617e664855078a41a98df729c1c'
-API_TOKEN = '7051266336:AAFsZr-ZuitAV2nvRSrJMCiYX7MtwS1KSGw'
+API_ID = "*******"
+API_HASH = '*****************'
+API_TOKEN = '****************************'
 
 class UserStatus:
     STANDBY = 1
